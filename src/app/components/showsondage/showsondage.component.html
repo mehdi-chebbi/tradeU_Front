@@ -1,0 +1,35 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="wrapper">
+  
+  <h1 class="page-title">{{ ActiveSondages.length === 0 ? 'No Active polls at the moment, please return later' : 'Available Polls' }}</h1>  
+  <div class="add-poll-container" *ngIf="ActiveSondages.length === 0">
+    <a href="/addsondage" class="add-poll-button">Add a poll</a>
+  </div>
+
+  <ul class="sondage-grid">
+    <li *ngFor="let sondage of ActiveSondages" class="sondage-card">
+      <div class="content" (click)="openSondageWindow(sondage)">
+        <div *ngIf="isEndDateWithinNextWeek(sondage.endDate)" class="warning-icon">
+          <mat-icon>warning</mat-icon>
+          <span class="warning-text">Ending Soon!</span>
+        </div>
+        <h2 class="sondage-title">{{ sondage.title }}</h2>
+        <p class="sondage-description">{{ sondage.description }}</p>
+        <p class="sondage-date">Start Date: {{ sondage.startDate }}</p>
+        <p class="sondage-date">End Date: {{ sondage.endDate }}</p>
+
+        <ul class="questions-list">
+          <li *ngFor="let question of questions">
+            <div *ngIf="question.sondage.idSondage === sondage.idSondage">
+              {{ question.text }}
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button *ngIf="sondage.createdBy.id === currentUserId.id" (click)="deleteSondage(sondage.idSondage)" class="delete-button">Delete</button>
+      <button *ngIf="sondage.createdBy.id === currentUserId.id" (click)="openReponseWindow(sondage)" class="btn btn-primary" style="margin-left: 10px;">Show responses</button>
+
+    </li>
+  </ul>
+</div>

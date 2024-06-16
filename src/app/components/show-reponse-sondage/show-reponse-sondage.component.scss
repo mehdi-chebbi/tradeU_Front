@@ -1,0 +1,77 @@
+/* Custom card styles */
+.custom-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-card .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .custom-sub-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-sub-card .card-subtitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .custom-sub-card .card-text {
+    margin-bottom: 5px;
+  }
+  
+  /* Accordion styles */
+  .accordion {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    max-height: 0;
+  }
+  
+  .accordion.show {
+    max-height: 1000px; /* Adjust this value based on your content height */
+  }
+  
+  /* Hover effect on card title */
+  .card-title:hover {
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .response-text {
+    font-weight: bold;
+  }
+  
+  .created-by {
+    color: #888;
+    font-size: 12px;
+  }
+  
+  .responses {
+    margin-top: 10px;
+  }
+  
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .btn-group {
+    display: flex;
+  }
+  
+  .btn-group .btn {
+    margin-left: 5px;
+  }

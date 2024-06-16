@@ -1,0 +1,453 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  padding-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.sweet-alert-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.sweet-alert-text {
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  color: blue; /* Change color to match your design */
+}
+
+/* Optional: Hover effect */
+.sweet-alert-text:hover {
+  color: darkblue; /* Change color on hover to give feedback */
+}
+
+.search-container {
+  text-align: right;
+  margin-top: 10px; /* Adjust as needed */
+}
+
+
+.sweet-alert-button:hover {
+  background-color: #45a049; /* Darker Green */
+}
+
+thead {
+  background-color: #FECE24;
+  color: #ffffff;
+}
+
+th,
+td {
+  padding: 16px;
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+  background-color: #cce5ff; /* Change background color on hover to give feedback */
+}
+
+/* Reset hover effect for rows in thead */
+thead tr:hover {
+  background-color: initial; /* Reset background color on hover */
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  color: #ccc;
+}
+
+.admin-dashboard-welcome {
+  background-color: #FECE24; /* Emerald Green */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-heading {
+  color: #ffffff; /* White color */
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.admin-dashboard-welcome {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+}
+
+.filter-container label {
+  margin-right: 10px;
+}
+.admin-dashboard-welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center vertically */
+}
+
+.filter-container {
+  position: relative; /* Relative positioning for absolute positioning of the button */
+}
+
+.filter-select {
+  padding: 8px 20px; /* Adjust padding to your preference */
+  border: 2px solid #FECE24; /* Green border */
+  background-color: white;
+  color: #FECE24;
+  font-size: 16px;
+  border-radius: 5px;
+  appearance: none; /* Remove default appearance */
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #FECE24; /* Lighter green when focused */
+}
+
+.filter-container::after {
+  content: "\25BC"; /* Downward arrow */
+  font-size: 12px;
+  color: #FECE24; /* Green color */
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust the distance from the right */
+  transform: translateY(-50%);
+  pointer-events: none; /* Allow clicks to go through */
+}
+
+.search-input {
+  padding: 10px 15px;
+  border: 2px solid #FECE24; /* Green border */
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f1f1f1; /* Light gray background */
+  transition: border-color 0.3s;
+  width: 200px; /* Adjust width as needed */
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #FECE24; /* Lighter green when focused */
+}
+
+/* Optional: Add some box shadow for a more modern look */
+.search-input {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add some rounded corners to the placeholder text */
+.search-input::placeholder {
+  border-radius: 5px;
+}
+
+.dashboard-description {
+  color: #ffffff; /* White color */
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+
+.content {
+  padding: 20px;
+}
+
+
+
+.online::before {
+  content: '\2022'; /* Utilisez le point Unicode pour représenter le point */
+  color: 3ec5ff;
+}
+
+.offline::before {
+  content: '\2022';
+  color: red;
+}
+
+/* styles.css */
+.banned-status {
+  color: red; /* Texte rouge pour les utilisateurs bannis */
+}
+
+.active-status {
+  color: green; /* Texte vert pour les utilisateurs actifs */
+}
+
+
+
+.warning {
+  display: none;
+}
+
+section {
+  display: flex;
+}
+
+.navbar {
+  width: 250px;
+  padding: 1rem;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 10px 10px 10px rgba(227, 215, 215, 0.434);
+}
+
+.navbar.active {
+  width: 0px;
+  padding: 0;
+}
+
+.navbar img {
+  margin-left: 10px;
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.center-nav,
+.bottom-nav {
+  list-style: none;
+}
+
+.center-nav a,
+.bottom-nav a {
+  color: #000;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.center-nav li,
+.bottom-nav li {
+  padding: 5px 20px;
+  margin: 5px 0;
+  transition: all 0.3s;
+}
+
+.center-nav li:hover,
+.bottom-nav li:hover {
+  color: purple;
+  transform: translateX(4px);
+}
+
+.bottom-nav li a:hover , .center-nav li a:hover {
+  color: purple;
+}
+
+hr {
+  margin-left: 20px;
+  height: 1.5px;
+  display: block;
+  margin-bottom: 5px;
+  width: 150px;
+  background-color: #2f2c2c1d;
+  outline: none;
+  border: none;
+}
+
+.bottom-nav {
+  position: absolute;
+  bottom: 30px;
+}
+
+
+/* ======= Main Content Styling ======= */
+.bars {
+  cursor: pointer;
+}
+
+.main-content {
+  padding: 10px;
+  width: 100%;
+}
+
+.main-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.bar {
+  margin: 3px 0;
+  width: 20px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #000;
+}
+
+.input {
+  width: 100%;
+  text-align: center;
+}
+
+.input input {
+  width: 90%;
+  outline: none;
+  border: none;
+  border: 1px solid rgb(153, 132, 132);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.user {
+  width: 40px;
+  position: relative;
+  transform: scaleX(-1);
+}
+
+.user img {
+  width: 100%;
+}
+
+/* ======== Styling Dashboard ======== */
+.dashboard {
+  padding: 10px;
+}
+
+.heading {
+  margin: 10px 0;
+}
+
+.color-box {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  height: 120px;
+  flex-direction: column;
+  width: 180px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 10px 5px;
+}
+
+.box i {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+
+
+
+.box p {
+  line-height: 30px;
+}
+
+.skyblue {
+  background-color: rgb(135, 220, 253);
+}
+
+.yellow {
+  background-color: rgb(231, 251, 151);
+}
+
+.purple {
+  background-color: rgb(243, 178, 255);
+}
+
+.red {
+  background-color: rgb(255, 178, 178);
+}
+
+/* ======== Styling Recent Activity ======== */
+.activity {
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.activity table {
+  width: 100%;
+}
+
+tr {
+  row-gap: 0px;
+}
+
+th {
+  line-height: 40px;
+  text-align: left;
+}
+
+td {
+  line-height: 28px;
+}
+
+td,
+th {
+  margin: 0;
+}
+
+@media screen and (max-width:630px) {
+  section {
+    display: none;
+  }
+
+  .warning {
+    padding: 5rem;
+    text-align: center;
+    line-height: 35px;
+    background-color: rgb(185, 72, 72);
+    display: flex;
+    color: #e1cdcd;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+}

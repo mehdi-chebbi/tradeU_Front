@@ -1,0 +1,14 @@
+.main-content {
+    display: flex;
+    
+  }
+  
+  .admin-dashboard {
+    flex: 0 0 ; /* Adjust the width as needed */
+  }
+  
+  .other-components {
+    flex: 1;
+    margin: 0;
+    max-height: fit-content;
+  }

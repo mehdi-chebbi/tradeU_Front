@@ -1,0 +1,43 @@
+<style>
+    .card {
+      margin-right: 20px;
+    }
+  
+    .btn-action {
+      margin-right: 10px;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+  </style>
+  
+  <div class="dashboard">
+    <div class="container">
+      <div class="header">
+        <h2>List of services</h2>
+        <button routerLink="/retrivecategories" class="btn btn-primary">View categories</button>
+      </div>
+      <div class="row">
+        <ng-container *ngFor="let bien of biens">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img [src]="bien.imageUrl" class="card-img-top" alt="Image">
+              <div class="card-body">
+                <h5 class="card-title">{{ bien.nom }}</h5>
+                <p class="card-text">{{ bien.discription }}</p>
+                <p class="card-text">Price {{ bien.prix }}</p>
+                <p class="card-text">Authorization status {{ bien.autorise ? 'Activé' : 'Désactivé' }}</p>
+                <div class="button-group">
+                  <button class="btn btn-primary btn-action" (click)="bien.autorise ? changerEtatAutorisationBienfalse(bien.id) : changerEtatAutorisationBien(bien.id)">
+                    {{ bien.autorise ? 'Deactivate' : 'Activate' }} autorisation
+                  </button>
+                  <button (click)="deleteBienadmin(bien.id)" class="btn btn-danger btn-action">Delete</button>
+                  <button (click)="openFeedbackAlert(bien.id)" class="btn btn-primary btn-action">View Feedbacks</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>

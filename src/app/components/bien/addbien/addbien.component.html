@@ -1,0 +1,55 @@
+
+<div class="container">
+    <h2>Add service</h2>
+    <form [formGroup]="addbienForm" (ngSubmit)="submitForm()" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="nom">Name</label>
+            <input type="text" class="form-control" id="nom" formControlName="nom" />
+            <div *ngIf="addbienForm.get('nom')?.invalid && (addbienForm.get('nom')?.dirty || addbienForm.get('nom')?.touched)" class="error-message">
+                Name is required
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="discription">Description</label>
+            <input type="text" class="form-control" id="discription" formControlName="discription" />
+            <div *ngIf="addbienForm.get('discription')?.invalid && (addbienForm.get('discription')?.dirty || addbienForm.get('discription')?.touched)" class="error-message">
+                Description is required
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="prix">Price</label>
+            <input type="text" class="form-control" id="prix" formControlName="prix" />
+            <div *ngIf="addbienForm.get('prix')?.invalid && (addbienForm.get('prix')?.dirty || addbienForm.get('prix')?.touched)" class="error-message">
+                Price is required
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="file">Image</label>
+            <input type="file" class="form-control" id="file" formControlName="file" (change)="onFileChange($event)" />
+            <div *ngIf="addbienForm.get('file')?.errors" class="error-message">
+                <div *ngIf="addbienForm.get('file')?.errors?.['required']">File is required</div>
+                <div *ngIf="addbienForm.get('file')?.errors?.['fileSizeExceeded']">File size should not exceed 5MB</div>
+              
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" formControlName="category">
+                <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+            </select>
+            <div *ngIf="addbienForm.get('category')?.invalid && (addbienForm.get('category')?.dirty || addbienForm.get('category')?.touched)" class="error-message">
+                Category is required
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="addbienForm.invalid">Add</button>
+    </form>
+
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
+</div>

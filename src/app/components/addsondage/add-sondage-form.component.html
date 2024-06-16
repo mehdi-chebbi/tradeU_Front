@@ -1,0 +1,48 @@
+<div class="wrapper">
+  <!-- Sondage Section -->
+  <div class="section">
+    <div class="title">Add Sondage</div>
+    <form [formGroup]="sondageForm" class="form">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="field" id="title" formControlName="title" />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="field" id="description" formControlName="description"></textarea>
+      </div>
+      <div class="form-group date-group">
+        <div>
+          <label for="endDate">Deadline</label>
+          <input type="date" class="field" id="endDate" formControlName="endDate" />
+        </div>
+      </div> 
+    </form>
+  </div>
+
+  <!-- Questions Section -->
+  <div class="section">
+    <div class="title">Add Questions</div>
+    <form [formGroup]="questionForm" class="form">
+      <ng-container *ngFor="let _ of questionCount(); let i = index">
+        <div class="form-group">
+          <label for="question{{i}}">Question {{i + 1}}</label>
+          <input type="text" class="field" [formControl]="getQuestionControl(i)" id="question{{i}}" />
+        </div>
+      </ng-container>
+      <div class="button-group">
+        <button type="button" class="add-question-btn" (click)="addQuestionInput()">+</button> 
+        <button type="button" class="remove-question-btn" (click)="removeLastQuestionInput()">-</button>
+
+      </div>
+    </form>
+     <!-- Add this line -->
+  </div>
+
+  <!-- Add Sondage & Questions Button -->
+  <div class="button-group">
+    <button type="button" class="submit-btn" [disabled]="sondageForm.invalid || questionForm.invalid" (click)="submitSondageAndQuestions()">
+      Add Sondage & Questions
+    </button>
+  </div>
+</div>

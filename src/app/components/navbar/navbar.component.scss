@@ -1,0 +1,16 @@
+/* navbar.component.scss */
+.bg-custom {
+  background: linear-gradient(-135deg, #c850c0, #4158d0);  }
+  
+  .navbar-nav {
+    font-size: 30px;
+  }
+  
+  .nav-link {
+    color: #fff; /* Couleur du texte des liens */
+  }
+  
+  .nav-link:hover {
+    color: #ddd; /* Couleur du texte des liens au survol */
+  }
+  

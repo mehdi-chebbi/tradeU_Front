@@ -1,0 +1,62 @@
+<p>
+
+
+
+
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4 text-primary">Add Reservation</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+              <form [formGroup]="reservationForm" (ngSubmit)="submitForm()" class="bg-light p-4 rounded">
+                <div class="form-group">
+                  <label for="reservationDate">Date of Reservation:</label>
+                  <input type="text" class="form-control" formControlName="reservationDate" id="reservationDate">
+                  <div *ngIf="reservationForm.get('reservationDate')?.touched && reservationForm.get('reservationDate')?.invalid" class="text-danger">
+                    Date Reservation is required
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="heureDebut">Start Hour:</label>
+                  <input type="text" class="form-control" formControlName="heureDebut" id="heureDebut">
+                  <div *ngIf="reservationForm.get('heureDebut')?.touched && reservationForm.get('heureDebut')?.invalid" class="text-danger">
+                    Start hour is required
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="heureFin">End Hour:</label>
+                  <input type="text" class="form-control" formControlName="heureFin" id="heureFin">
+                  <div *ngIf="reservationForm.get('heureFin')?.touched && reservationForm.get('heureFin')?.invalid" class="text-danger">
+                    End hour is required
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                  <textarea class="form-control" formControlName="description" id="description"></textarea>
+                  <div *ngIf="reservationForm.get('description')?.touched && reservationForm.get('description')?.invalid" class="text-danger">
+                    Description is required
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="selectedPlace">Place:</label>
+                  <select class="form-control" formControlName="selectedPlace" id="selectedPlace">
+                    <option *ngFor="let place of places" [value]="place.id">{{ place.name }}</option>
+                  </select>
+                  <div *ngIf="reservationForm.get('selectedPlace')?.touched && reservationForm.get('selectedPlace')?.invalid" class="text-danger">
+                    Place is required
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mr-2">Ajouter</button>
+                </div>
+              </form>
+
+            </div>
+        </div>
+      </div>
+

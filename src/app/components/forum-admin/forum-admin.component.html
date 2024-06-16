@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Sidebar</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+
+
+<div class="content">
+  <!-- Your main content goes here -->
+  <div class="admin-dashboard-welcome">
+    <h2 class="welcome-heading">Welcome to the Admin Dashboard</h2>
+    <div class="filter-container">
+      <label for="filter">Order By:</label>
+      <select id="filter" [(ngModel)]="selectedFilterOption" (change)="applyFilter()" class="filter-select">
+        <option value="date">Date (Ascending)</option>
+        <option value="date_desc">Date (Descending)</option>
+        <option value="responses">Number of Answers (Ascending)</option>
+        <option value="responses_desc">Number of Answers (Descending)</option>
+        <option value="likes">Number of Likes (Ascending)</option>
+        <option value="likes_desc">Number of Likes (Descending)</option>
+        <option value="dislikes">Number of Dislikes (Ascending)</option>
+        <option value="dislikes_desc">Number of Dislikes (Descending)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Filter Dropdown -->
+
+  <button type="button" class="btn btn-primary statistics-button" (click)="showCanvasInAlert()">
+    <i class="fa-solid fa-chart-bar"></i> <!-- Icon for statistics -->
+    View Statistics <!-- Descriptive label -->
+  </button>
+
+  <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="applySearch()" class="search-input" style="float: right; margin-right: 20px;">
+
+  <table>
+
+
+    <thead>
+    <tr>
+      <th>User</th>
+      <th>Post</th>
+      <th>Posting Date</th>
+      <th>Likes</th> <!-- New field -->
+      <th>Dislikes</th> <!-- New field -->
+      <th>Answers</th> <!-- New field -->
+      <th>Actions</th> <!-- New field -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let publication of listPublication">
+      <td>{{ publication.publicationCreatedBy.username }}</td>
+      <td>{{ publication.publicationContent }}</td>
+      <td>{{ formatDate(publication.datePublication) }}</td>
+      <td>{{ publication.likes }}</td>
+      <td>{{ publication.dislikes }}</td>
+
+
+      <td style="text-align: center;">
+        <ng-container *ngIf="countReponsesforPub(publication) === 0; else displayCount">
+          <span>no answers</span>
+        </ng-container>
+        <ng-template #displayCount>
+  <span class="sweet-alert-text" (click)="ShowReponses(publication)">
+    {{ countReponsesforPub(publication) }}
+  </span>
+        </ng-template>
+      </td>
+      <td><button type="button" class="btn btn-outline-danger delete-button"  (click)="removePublication(publication.idPublication)">delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  <!-- Chart canvas -->
+
+
+</div>
+
+</body>
+</html>

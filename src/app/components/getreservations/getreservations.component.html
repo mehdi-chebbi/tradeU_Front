@@ -1,0 +1,48 @@
+<p>
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search Reservation" class="form-control mb-3" (keyup)="searchReservations()">
+
+<div class="container text-center mt-5">
+  <h2 class="mb-5"><span class="label-text">List of Reservations</span></h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Name of Place</th>
+      <th scope="col">Reservation Date</th>
+      <th scope="col">Start hour</th>
+      <th scope="col">End hour</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Contenu de la table -->
+    <tr *ngFor="let reservation of filteredReservations">
+      <td>{{reservation.placeName}}</td>
+      <td>{{formatDate(reservation.reservationDate)}}</td>
+      <td>{{formatTime(reservation.heureDebut)}}</td>
+      <td>{{formatTime(reservation.heureFin)}}</td>
+      <td>{{reservation.description}}</td>
+      <td>
+        <!-- Bouton Modifier -->
+        <button (click)="onUpdate(reservation.id)" class="btn btn-primary mr-3">Update</button>
+        <!-- Espacement horizontal -->
+        <span style="display:inline-block;width:10px;"></span>
+        <!-- Bouton Supprimer -->
+        <button (click)="onDelete(reservation.id)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button (click)="onAdd()" class="btn btn-success">Add Reservation</button>
+</div>
+
+<style>
+  .label-text {
+    font-size: 28px; /* Taille de police */
+    font-weight: bold; /* Gras */
+    color: #007bff; /* Couleur bleue */
+    font-family: Arial, sans-serif; /* Style de police */
+    text-transform: uppercase; /* Convertir en majuscules */
+    letter-spacing: 1px; /* Espacement entre les lettres */
+  }
+</style>

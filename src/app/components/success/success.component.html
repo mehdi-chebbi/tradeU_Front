@@ -1,0 +1,46 @@
+<div id="contentToConvert">
+  <div class="receipt-container">
+    <div class="image-container">
+      <img src="assets/payment.png" alt="Documents Image">
+    </div>
+    <div class="receipt-content">
+      <h2 class="success-heading">Payment Successful!</h2>
+
+      <!-- Display the generated coupon code -->
+      <div *ngIf="generatedCoupon" class="coupon-container">
+        <h2 class="coupon-heading">Congratulations! You've Generated a Coupon</h2>
+        <div class="coupon-details">
+          <p class="coupon-code">Coupon Code: {{ generatedCoupon.code }}</p>
+          <p class="coupon-discount">This coupon gives you a <span class="discount-amount">20%</span> discount on your purchase.</p>
+        </div>
+      </div>
+      
+      
+      
+
+      <!-- Rest of the content -->
+      <div *ngIf="biensInCart.length > 0" class="products-container">
+        <div class="biens-in-cart">
+          <h3 class="products-heading">Biens Purchased:</h3>
+          <ul class="products-list">
+            <li *ngFor="let bien of biensInCart" class="product-item">
+              {{ bien.nom }} - {{ bien.prix }}
+            </li>
+          </ul>
+        </div>
+        <div class="total-price-container">
+          <p class="total-price">Total Price: {{ totalCartPrice }}</p>
+        </div>
+      </div>
+
+      <div *ngIf="biensInCart.length === 0" class="no-products-container">
+        <p class="no-products-message">No biens purchased.</p>
+      </div>
+
+      <div class="button-container">
+        <button class="back-button" (click)="navigateToMarket()">Go Back to Market</button>
+        <button class="download-button" (click)="downloadImage()">Download Image</button>
+      </div>
+    </div>
+  </div>
+</div>

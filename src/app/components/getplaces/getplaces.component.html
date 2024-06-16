@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="getplaces.component.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .warning {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .main-content {
+            margin-top: 50px;
+        }
+
+        .dashboard {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .label-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: #007bff;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-action {
+            margin-right: 10px;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="warning">
+        <h2>Sorry, this page doesn't support your device. Please use a large screen device to view this page.</h2>
+    </div>
+
+    <section>
+        <div class="main-content">
+            <div class="dashboard">
+                <div class="container text-center mt-5">
+                    <h2 class="mb-5"><span class="label-text">List of Places</span></h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4" *ngFor="let place of places">
+                            <div class="card">
+                                <img class="card-img-top img-fluid" [src]="place.imageUrl" alt="{{ place.name }}" style="height: 200px; object-fit: cover;">
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div>
+                                        <h5 class="card-title">{{ place.name }}</h5>
+                                        <p class="card-text">{{ place.description }}</p>
+                                        <p class="card-text">{{ place.reserved ? 'Reserved' : 'Not Reserved' }}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button (click)="onUpdate(place.id)" class="btn btn-primary btn-action mr-2">Update</button>
+                                        <button (click)="onDelete(place.id)" class="btn btn-danger btn-action">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="d-flex justify-content-center">
+                            <button (click)="onSort()" class="btn btn-primary btn-action mr-1">Sort</button>
+                            <button (click)="onAdd()" class="btn btn-success btn-action ml-1">Add Place</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    const hamburger = document.getElementById('menu');
+    const navigation = document.getElementById('navigation');
+    hamburger.addEventListener('click', function () {
+        navigation.classList.toggle('active')
+        console.log('clicked');
+    })
+</script>
+</html>

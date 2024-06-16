@@ -1,0 +1,43 @@
+
+<div class="dashboard"  >
+
+  <h2>Liste des utilisateurs</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Suppression</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.adress }}</td>
+        <td>{{ user.phone }}</td>
+        <td>
+          <span *ngIf="user.banned; else activeStatus">Banned</span>
+          <ng-template #activeStatus>
+            Actif
+          </ng-template>
+        </td>
+        <td>
+          <button (click)="deleteUser(user.id)" class="btn btn-danger">delete</button>
+        </td>
+        <td>
+          <div *ngIf="!user.banned">
+            <button (click)="banuser(user.id)" class="btn btn-warning">Ban</button>
+          </div>
+          <div *ngIf="user.banned">
+            <button (click)="unbanuser(user.id)" class="btn btn-success">Unban</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    </div>

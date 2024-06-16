@@ -1,0 +1,19 @@
+<div class="main-content">
+  <div class="admin-dashboard">
+    <ng-container *ngIf="showNavBar() === 'ADMIN'">
+      <app-dashboard-admin></app-dashboard-admin> 
+    </ng-container>
+  </div>
+
+  <div class="other-components">
+    <ng-container *ngIf="showNavBar() === 'USER'">
+      <app-sidebar></app-sidebar>
+    </ng-container>
+
+    <ng-container *ngIf="showNavBar() === 'NULL'">
+    </ng-container>
+
+    <!-- Dynamic components should be placed here -->
+    <router-outlet></router-outlet>
+  </div>
+</div>

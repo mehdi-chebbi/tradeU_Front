@@ -1,0 +1,39 @@
+<div class="dashboard">
+    <div class="container">
+        <h2>List of categories</h2>
+        <!-- Bouton pour naviguer vers "/addcategorie" -->
+        <button class="btn btn-primary mb-3" [routerLink]="['/addcategories']">Add Category</button>
+
+        <div class="row">
+            <div class="col-md-4 mb-4" *ngFor="let categorie of categories">
+                <div class="card" (click)="afficherBiensParCategorie(categorie.id)">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ categorie.name }}</h5>
+                        <p class="card-text">{{ categorie.description }}</p>
+                        <button [routerLink]="['/updatecategories',categorie.id]" class="btn btn-danger">Update</button>
+                        <button (click)="deletecategorie(categorie.id)" class="btn btn-danger btn-action">delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4" *ngIf="biens.length > 0">
+        <h2>Services of category {{ idCategorieSelectionnee }}</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4" *ngFor="let bien of biens">
+                <div class="card h-100">
+                    <img [src]="bien.imageUrl" class="card-img-top" alt="Image">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ bien.nom }}</h5>
+                        <div class="description mb-auto">{{ bien.description }}</div>
+                        <div class="price mt-2">price {{ bien.prix }}</div>
+                        <div class="buttons mt-3">
+                            <!-- Ajoutez ici les boutons d'action pour les biens -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

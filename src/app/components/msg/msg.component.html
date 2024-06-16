@@ -1,0 +1,28 @@
+<!-- Created By CodingNepal -->
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login Form Design | CodeLab</title>
+      <link rel="stylesheet" href="msg.component.scss">
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title">
+           Reset password
+         </div>
+<form [formGroup]="formGroup" (ngSubmit)="sendVerificationCode()" >   
+      <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="field" id="email" formControlName="email" />
+        </div>
+        <div class="field">
+            <input type="submit" value="send" [disabled] ="formGroup.invalid">
+
+         </div>
+ 
+         </form>
+      </div>
+   </body>
+</html> 
+

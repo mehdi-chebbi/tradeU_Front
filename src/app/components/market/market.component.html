@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<div id="app">
+    <header>
+      
+      <h1>BIENS</h1>
+    </header>
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Search by name" [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()">
+      <button class="search-button" (click)="onSearchTermChange()">Search</button>
+    </div>
+    <div class="grid">
+      <div class="col-sx">  
+        <div class="products">
+          <h2>Products</h2>
+          <div class="sorting-buttons">
+            <button class="sort-button asc" (click)="sortBiensByPrice('asc')">
+              <i class="bi-arrow-up-circle-fill">Show Lowest price</i>
+            </button>
+            <button class="sort-button desc" (click)="sortBiensByPrice('desc')">
+              <i class="bi-arrow-down-circle-fill">Show Highest price</i>
+            </button>
+          </div>
+        
+          <ul class="products-list">
+            <!-- Modify *ngFor loop to use filteredBiens -->
+            <li class="product" *ngFor="let bien of filteredBiens">
+              <div class="box">
+                <img [src]="bien.imageUrl" alt="Product Image" class="product-image">
+                <h3 class="title">{{ bien.nom }}</h3>
+                <p>{{ bien.description }}</p>
+                <p class="price">{{ bien.prix | currency }}</p>
+                <button (click)="addToCart(bien.id)">Add to cart</button> 
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-dx">
+        <div class="cart">
+          <h2>Cart</h2>
+          <ul class="cart-list">
+            <!-- Modify *ngFor loop to use biensInCart -->
+            <li class="cart-item" *ngFor="let bien of biensInCart">
+                <div class="box">
+                  <h3 class="title">{{ bien.nom }}</h3>
+                  <p class="price">{{ bien.prix | currency }}</p>
+                  <!-- Button to delete bien from cart -->
+                  <button (click)="deleteBienFromCart(cartId, bien.id)">Remove Product</button>
+<span style="margin-right: 10px;"></span> <!-- Add space between buttons -->
+<button (click)="openFeedbackWindow(bien.id)">Add Feedback</button>
+
+                </div> 
+              </li>
+              <div class="total-cart-price">
+                <i class="fas fa-shopping-cart"></i>
+                Total Cart Price: {{ totalCartPrice | currency }}
+              </div>             
+          </ul>
+          <!-- Add text bar to enter coupon code and button to create commande -->
+          <div class="coupon-section">
+            <input type="text" class="coupon-input" placeholder="Use coupon here" [(ngModel)]="couponCode">
+            <button class="apply-coupon-button" (click)="applyCoupon()">Pay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

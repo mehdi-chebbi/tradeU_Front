@@ -1,0 +1,46 @@
+<body>
+  <ng-container *ngFor="let sondage of sondages">
+    <div class="card custom-card mb-3">
+      <div class="card-header">
+        <div class="title-container">
+          <h5 class="card-title" (click)="toggleAccordion(sondage.idSondage)">{{ sondage.title }}</h5>
+          <div class="btn-group">
+            <button class="btn btn-success" (click)="toggleSondageStatus(sondage.idSondage, true)" *ngIf="!sondage.active">Activate</button>
+            <button class="btn btn-danger" (click)="toggleSondageStatus(sondage.idSondage, false)" *ngIf="sondage.active">Deactivate</button>
+            <button class="btn btn-danger" (click)="deleteSondage(sondage.idSondage)">Delete</button>
+
+            <!-- Add download Excel button -->
+          </div>
+        </div>
+      </div>
+      <div class="accordion" [ngClass]="{'show': isAccordionOpen[sondage.idSondage]}">
+        <ng-container *ngFor="let question of questions">
+          <ng-container *ngIf="question.sondage.idSondage === sondage.idSondage">
+            <div class="card custom-sub-card">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">{{ question.text }}</h6>
+                <button class="btn btn-primary" (click)="toggleResponses(question)">Show Responses</button>
+                <div [hidden]="!question.showResponses" class="responses">
+                  <ng-container *ngFor="let reponse of reponseSondages">
+                    <ng-container *ngIf="question.Id === reponse.question_id ">
+                      <p class="card-text">
+                        <span class="response-text">{{ reponse.textReponse }}</span>
+                        <span class="created-by">Created By: {{ reponse.user.username }}</span>
+                      </p>
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+  <button class="btn btn-success" (click)="downloadExcel()">Download Excel For All Polls</button>
+  <a href="/statistiqueSondage" class="btn btn-success" style="border-radius: 0.25rem; padding: 0.375rem 0.75rem; font-size: 1rem; line-height: 1.5; color: #fff; background-color: #28a745; border-color: #28a745; text-decoration: none; display: inline-block; transition: background-color 0.3s;">
+    Poll statistics
+  </a>
+  
+  
+</body>

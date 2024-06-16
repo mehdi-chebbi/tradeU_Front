@@ -1,0 +1,45 @@
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login Form Design | CodeLab</title>
+      <link rel="stylesheet" href="login.component.scss">
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title">
+            Login Form
+         </div>
+         <form [formGroup]="loginForm" (ngSubmit)="submitForm()"  >
+            <div class="form-group">
+               <label for="email">Email</label>
+               <input type="email" class="field" id="email" formControlName="email" />
+            </div>
+            <div class="form-group">
+               <label for="password">Password</label>
+               <input type="password" class="field" id="password" formControlName="password" />
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+               <strong class="innovative-text"></strong> {{ errorMessage }}
+
+            </div>
+            <div class="content">
+               <div class="checkbox">
+                  <input type="checkbox" id="remember-me">
+                  <label for="remember-me">Remember me</label>
+               </div>
+               <div class="pass-link">
+                  <a href="/msg">Forgot password?</a>
+               </div>
+            </div>
+            <div class="field">
+               <input type="submit" value="Login" [disabled] ="loginForm.invalid">
+            </div>
+            <div class="signup-link">
+               Not a member? <a href="/register">Signup now</a>
+            </div>
+
+         </form>
+      </div>
+   </body>
+</html>

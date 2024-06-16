@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-md navbar-light col-12">
+    <div class="navbar-brand ml-4">
+        <img src="/assets/trade_u.png" alt="Logo">
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" >
+        <ul class="navbar-nav mr-auto py-4 py-md-0">
+            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="homePage" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="emoji"></span> Home
+                </a>
+                <div class="dropdown-menu">
+                    
+                </div>
+            </li>
+            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                <a class="nav-link" href="/market">
+                    <span class="emoji"></span> Market
+                </a>
+            </li>
+            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                <a class="nav-link" href="/retrivebien">
+                    <span class="emoji"></span> Services
+                </a>
+            </li>
+            
+            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                <a class="nav-link" href="/getreservations">
+                    <span class="emoji"></span> Reservation
+                </a>
+            </li>
+            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                <a class="nav-link" href="/forum">
+                    <span class="emoji"></span> Blog
+                </a>
+            </li>
+            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                <a class="nav-link" href="/feedback">
+                    <span class="emoji"></span> Feedback
+                </a>
+            </li>
+            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 dropdown" style="margin-top: 5px;">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                     Polls
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/addsondage">Add a poll</a>
+                        <a class="dropdown-item" href="/showsondage">Show polls</a></li>
+                </ul>
+            </li>
+            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" >
+                    <span class="emoji">👤</span> Profile
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/profile">Show Profile</a></li>
+                    <a (click)="logout()">Logout</a>
+                </ul>
+            </li>
+           
+        </ul>
+    </div>
+</nav>

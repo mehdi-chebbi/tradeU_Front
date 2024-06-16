@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Admin Dashboard </title>
+    <link rel="stylesheet" href="dashboard-admin.component.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+    <div class="warning">
+        <h2> Sorry, this page doesn't support your device, Please use large screen device to see this page </h2>
+    </div>
+    
+    
+        <!-- User Sidebar Starts from Here -->
+        <div class="navbar" id="navigation">
+            <div class="navbar-brand ml-4">
+                <img src="/assets/trade_u.png" alt="Logo">
+            </div>
+            <ul class="center-nav">
+                <li><i class="fa-solid fa-house"></i><a href="/dashboard"> Users </a></li>
+                <li><i class="fa-solid fa-copy"></i><a href="/retrivebienadmin"> Services </a></li>
+                <li><i class="fa-sharp fa-solid fa-floppy-disk"></i><a href="/getplaces"> Places </a></li>
+                <li><i class="fa-sharp fa-solid fa-floppy-disk"></i><a href="/adminSondageFeedback"> Feedbacks </a></li>
+                <li><i class="fa-sharp fa-solid fa-floppy-disk"></i><a href="/showReponseSondage"> Polls </a></li>
+                <li><i class="fa-sharp fa-solid fa-floppy-disk"></i><a href="/forumAdmin"> Forum </a></li>
+                <li><i class="fa-sharp fa-solid fa-floppy-disk"></i><a href="/statistics"> Market Statistics </a></li>
+            </ul>
+            <ul class="bottom-nav">
+                <hr>
+                <li><i class="fa-solid fa-power-off"></i><a  (click)="logout()">logout</a></li>
+              </ul>
+        </div>
+
+        <!-- User Top Naviagation Starts from Here -->
+        
+
+<script>
+    const hamburger = document.getElementById('menu');
+    const navigation = document.getElementById('navigation');
+    hamburger.addEventListener('click', function () {
+        navigation.classList.toggle('active')
+        console.log('clicked');
+    })
+</script>
+
+</html>

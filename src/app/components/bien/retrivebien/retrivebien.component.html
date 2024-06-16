@@ -1,0 +1,49 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<div class="container">
+    <h2>List of services </h2>
+    <div class="form-group">
+      <label for="triCritere">Trier par :</label>
+      <select class="form-control" id="triCritere" (change)="triChanged($event)">
+        <option value="" disabled selected hidden>Select Sorting criteria</option>
+        <option value="prixCroissant">Sort by low prices</option>
+        <option value="prixDecroissant">Sort by high prices </option>
+        <option value="dateAjoutCroissante">Sort by newst</option>
+        <option value="dateAjoutDecroissante">Sort by oldest</option>
+      </select>
+    </div>
+      <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let bien of biens">
+            <div class="card h-100">
+                <img [src]="bien.imageUrl" class="card-img-top" alt="Image">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ bien.nom }}</h5>
+                    <div class="description mb-auto">{{ bien.discription }}</div>
+                    <div class="price mt-2">Price {{ bien.prix }}</div>
+                    <div class="date mt-2">Date  {{ bien.dateAjout | date: 'short' }}</div>
+                    <div class="buttons mt-3" *ngIf="bien.user.id === currentUserId.id">
+                        <button (click)="deleteBien(bien.id)" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+                        <button [routerLink]="['/updatebien', bien.id]" class="btn btn-primary"><i class="fa fa-edit"></i> Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bouton d'ajout de bien -->
+    <div class="fixed-bottom mb-4">
+        <div class="row justify-content-end align-items-center">
+          <div class="col-auto">
+            <!-- Button with an icon for adding a property -->
+            <a routerLink="/addbien" class="btn btn-primary">
+              <i class="fas fa-plus fa-lg"></i>
+            </a>
+          </div>
+
+
+
+        </div>
+    </div>
+</div>
+

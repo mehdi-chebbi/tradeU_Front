@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+<div class="container">
+  <h2>Blog</h2>
+
+  <!-- Textarea for inputting publication content -->
+  <textarea [(ngModel)]="publicationContent" placeholder="Have anything on mind?" class="form-control mb-3"></textarea>
+
+  <!-- Button to add a new publication -->
+  <button (click)="addPublication(publicationContent);  " class="btn btn-primary mb-3">Add Publication</button>
+  <div *ngFor="let publication of listPublication; let i = index" class="card custom-card mb-3">
+    <div class="card-body">
+      <!-- Edit and Delete Buttons (Top Right Corner) -->
+      <div class="d-flex justify-content-between align-items-start mb-2">
+        <!-- Publication Name and Icon -->
+        <div class="d-flex align-items-center">
+          <!-- Icon -->
+
+          <!-- Name -->
+          <p class="user ml-2"style="font-size: 0.85rem">{{ publication.publicationCreatedBy.name }}</p>
+        </div>
+        <!-- Edit and Delete Buttons -->
+        <div class="d-flex justify-content-end mb-2" *ngIf="publication.publicationCreatedBy.email === currentUserId.email">
+          <div class="d-flex flex-row">
+            <button type="button" class="btn btn-outline-primary "(click)="updatePublications(publication.idPublication,publication)">
+              <i class="fas fa-edit"></i>
+            </button>
+            <!-- Delete Button -->
+            <button type="button" class="btn btn-outline-secondary"(click)="removePublication(publication.idPublication)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Publication Content -->
+
+      <h2 class="card-text"style="height: 50px;">{{ publicationContents[publication.idPublication] || publication.publicationContent }}</h2>
+
+      <button type="button" class="btn btn-primary" (click)="showResponses(publication)">
+        <i class="fas fa-comments"></i> View Responses
+      </button>
+
+      <p style="margin-top: 5px; font-size: 14px; color: #555;">
+        Posted on {{ formatDate(publication.datePublication) }}
+      </p>
+
+      <!-- Like, Dislike, and Translate Buttons -->
+      <div class="btn-group" role="group" aria-label="Like, Dislike, and Translate buttons">
+        <button type="button" class="btn btn-outline-success">
+          <i class="fa fa-thumbs-up" (click)="likePublication(publication.idPublication)"></i> {{ publication.likes }}
+        </button>
+        <button type="button" class="btn btn-outline-danger">
+          <i class="fa fa-thumbs-down"(click)="dislikePublication(publication.idPublication)"></i> {{ publication.dislikes }}
+        </button>
+        <!-- Translate Button -->
+        <div class="dropdown">
+          <button class="btn btn-outline-info sharp-corner ">
+            <i class="fa fa-language "></i> Translate
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a (click)="translatePublicationToArabic(publication.idPublication, i)">
+              <i class="flag-icon flag-icon-sa stylish-icon"></i> Arabic
+            </a>
+            <a (click)="translatePublicationToFrench(publication.idPublication, i)">
+              <i class="flag-icon flag-icon-fr stylish-icon"></i> French
+            </a>
+            <a (click)="translatePublicationToSpanish(publication.idPublication, i)">
+              <i class="flag-icon flag-icon-es stylish-icon"></i> Spanish
+            </a>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-twitter" (click)="sharePublication(publication.idPublication)">
+          Share on <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+</body>
+</html>

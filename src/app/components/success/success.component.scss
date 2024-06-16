@@ -1,0 +1,147 @@
+#contentToConvert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    
+
+    .coupon-container {
+      background-color: #f8f9fa;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    
+    .coupon-heading {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .coupon-details {
+      margin-top: 10px;
+    }
+    
+    .coupon-code {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    
+    .coupon-discount {
+      font-size: 16px;
+      color: #666;
+    }
+    
+    .discount-amount {
+      font-weight: bold;
+      color: #007bff; /* Blue color for emphasis */
+    }
+    
+
+    
+    .receipt-container {
+      display: flex;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 800px; /* Adjust the max-width as needed */
+      
+      .image-container {
+        flex: 1;
+        padding: 60px 20px; /* Increase the top and bottom padding */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        img {
+          max-height: 100%;
+          max-width: 100%;
+          object-fit: contain;
+        }
+      
+      
+      }
+      
+      .receipt-content {
+        flex: 2; /* Increase the flex value to make it bigger */
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        .success-heading {
+          font-size: 24px;
+          color: #333;
+          margin-bottom: 20px;
+        }
+        
+        .products-container {
+          flex: 1; /* Increase the flex value to make it bigger */
+          
+          .biens-in-cart {
+            .products-heading {
+              font-size: 18px;
+              color: #333;
+              margin-bottom: 10px;
+            }
+            
+            .products-list {
+              list-style-type: none;
+              padding: 0;
+              
+              .product-item {
+                font-size: 16px; /* Increase the font size for biens name and price */
+                color: #666;
+                margin-bottom: 5px;
+              }
+            }
+          }
+          
+          .total-price-container {
+            .total-price {
+              font-size: 18px; /* Increase the font size for total price */
+              color: #333;
+              margin-top: 20px;
+            }
+          }
+        }
+        
+        .no-products-container {
+          .no-products-message {
+            font-size: 16px;
+            color: #666;
+          }
+        }
+        
+        .button-container {
+          display: flex;
+          flex-direction: column; /* Change to column direction */
+          align-items: flex-start; /* Align items to the start */
+          margin-top: 20px;
+          
+          .back-button,
+          .download-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+          
+          .back-button {
+            background-color: #333;
+            margin-bottom: 10px; /* Add margin bottom */
+          }
+          
+          .download-button {
+            background-color: #007bff;
+          }
+        }
+      }
+    }
+    
+}  

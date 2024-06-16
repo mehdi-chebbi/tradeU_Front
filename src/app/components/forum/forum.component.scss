@@ -1,0 +1,101 @@
+.btn-outline-twitter {
+  color: #000; /* Black color for text */
+  border-color: #000; /* Black color for border */
+}
+
+.btn-outline-twitter:hover {
+  color: #fff; /* White text color on hover */
+  background-color: #000; /* Black color for background on hover */
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  color: #555;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #f0f0f0;
+}
+
+.custom-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+
+  textarea {
+    width: 100%;
+    min-height: 100px;
+  }
+
+  .btn-primary {
+    margin-bottom: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+  }
+  .sharp-corner {
+    border-radius: 0;
+  }
+  .stylish-icon {
+    /* Define your custom styles here */
+    font-size: 24px; /* Adjust size */
+    color: #007bff; /* Adjust color */
+    margin-right: 5px; /* Adjust spacing */
+  }
+
+  .card-text {
+    margin-bottom: 1rem;
+  }
+  .custom-swal-container {
+    width:850px !important;
+  }
+  .swal-wide{
+    width:850px !important;
+  }
+  .custom-swal-confirm-button {
+    width: 100%;
+  }
+
+  .publication {
+    margin-bottom: 20px;
+  }
+
+  .response {
+    margin-bottom: 10px;
+  }
+  .box2 {
+    border: 2px solid #000;
+    padding: 10px;
+  }
+}

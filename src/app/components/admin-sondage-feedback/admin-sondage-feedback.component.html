@@ -1,0 +1,22 @@
+<h2>Feedbacks</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Content</th>
+            <th scope="col">Created By</th>
+            <th scope="col">Submission Date</th>
+           <!-- <th scope="col">Action</th>-->
+            
+            <!-- Add more table headers as needed for other properties -->
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let feedback of feedbacks" [hidden]="feedback.isHidden">
+                <td>{{ feedback.contenu }}</td>
+                <td>{{ feedback.createdByFb.username }}</td>
+                <td>{{ feedback.submissionDate }}</td>
+                <!-- <td>  <button class="delete-button" (click)="deleteFeedback(feedback.idFeedback)">Delete Feedback</button>
+                </td> -->
+              </tr>
+        </tbody>
+      </table>

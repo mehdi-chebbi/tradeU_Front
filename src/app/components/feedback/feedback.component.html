@@ -1,0 +1,18 @@
+
+
+<div class="feedback-container">
+  <h1 class="feedback-title">Submit Feedback</h1>
+  <p class="feedback-description">We value your feedback as it helps us improve our site and provide you with a better experience. Please take a moment to share your thoughts with us.</p>
+
+  <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()" class="feedback-form">
+    <div>
+      <label for="contenu" class="feedback-label">Message:</label>
+      <textarea id="contenu" formControlName="contenu" class="feedback-textarea" (input)="onContentChange()"></textarea>
+      <div *ngIf="feedbackForm.get('contenu')?.invalid && feedbackForm.get('contenu')?.touched" class="feedback-error">
+        Message is required.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="feedbackForm.invalid" class="feedback-button">Submit</button>
+  </form>
+</div>

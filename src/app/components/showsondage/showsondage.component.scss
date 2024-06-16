@@ -1,0 +1,108 @@
+/* General styles */
+.page-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.sondage-grid {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sondage-card {
+  width: 70%;
+  background-color: #fff7e0; /* Yellowish background color */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.sondage-card:hover {
+  transform: translateY(-5px);
+}
+
+.sondage-card .content {
+  padding: 20px;
+}
+
+.sondage-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.sondage-description {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.sondage-date {
+  font-size: 1rem;
+  color: #666;
+}
+
+.questions-list {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.questions-list li {
+  list-style-type: none;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #444;
+}
+.page-title {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+}
+.delete-button {
+  background-color: #f44336; /* Red background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor style on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+.btn-primary {
+  background-color: #29d20f; /* Red background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor style on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.delete-button:hover {
+  background-color: #c62828; /* Darker red background on hover */
+}
+.add-poll-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+
+}
+.add-poll-container {
+  text-align: center;
+}
+
+
+.add-poll-button:hover {
+  background-color: #45a049;
+}
+
